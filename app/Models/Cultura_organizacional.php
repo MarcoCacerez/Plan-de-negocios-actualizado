@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Imagen_corporativa extends Model
+class Cultura_organizacional extends Model
 {
     use HasFactory;
-    protected $table = 'imagenes_corporativas';
+    protected $table = 'culturas_organizacionales';
 
     public function plan_de_negocio():BelongsTo
     {

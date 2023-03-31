@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Modelo_canvas extends Model
 {
     use HasFactory;
+    protected $table = 'modelo_canvas';
 
     public function plan_de_negocio():BelongsTo
     {

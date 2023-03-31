@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Imagen_corporativa extends Model
+class Estructura_legal extends Model
 {
     use HasFactory;
-    protected $table = 'imagenes_corporativas';
-
+    protected $table = 'estructuras_legales';
+    
     public function plan_de_negocio():BelongsTo
     {
         return $this->belongsTo(Plan_de_negocio::class);
