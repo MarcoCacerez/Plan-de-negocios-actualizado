@@ -20,7 +20,7 @@ class PlanDeNegocioController extends Controller
      */
     public function create()
     {
-        //
+        return view('plan_de_negocio.create');
     }
 
     /**
