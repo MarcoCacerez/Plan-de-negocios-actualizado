@@ -28,7 +28,9 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main
+                {{ $attributes->merge(['class']) }}
+            >
                 {{ $slot }}
             </main>
         </div>

@@ -1,11 +1,8 @@
-@extends('layouts.sidebar')
-
-@section('contenido')
-<x-app-layout>
-
-    <div class="text-white py-6 text-2xl">
-        <h1>Información de la empresa</h1>
+<x-app-layout class="flex flex-nowrap">
+    
+    <x-sidebar></x-sidebar>
+    <div class="mx-auto">
+        <h1 class="text-gray-100 py-6 text-2xl">Información de la empresa</h1>
     </div>
 
 </x-app-layout>
-@endsection
