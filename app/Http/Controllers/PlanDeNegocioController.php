@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan_de_negocio;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlanDeNegocioController extends Controller
 {
@@ -12,7 +14,9 @@ class PlanDeNegocioController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard', [
+            'planes_de_negocios' => auth()->user()->planes_de_negocios,
+        ]);
     }
 
     /**
@@ -28,7 +32,19 @@ class PlanDeNegocioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        $user->planes_de_negocios()->create($validated);
+        $user->save();
+
+        return view('dashboard', [
+            'planes_de_negocios' => auth()->user()->planes_de_negocios,
+        ]);
     }
 
     /**
