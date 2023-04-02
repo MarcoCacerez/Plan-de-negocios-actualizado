@@ -42,9 +42,7 @@ class PlanDeNegocioController extends Controller
         $user->planes_de_negocios()->create($validated);
         $user->save();
 
-        return view('dashboard', [
-            'planes_de_negocios' => auth()->user()->planes_de_negocios,
-        ]);
+        return redirect()->route('dashboard');
     }
 
     /**
