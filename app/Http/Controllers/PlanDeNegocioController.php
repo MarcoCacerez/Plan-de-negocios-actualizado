@@ -50,7 +50,7 @@ class PlanDeNegocioController extends Controller
      */
     public function show(Plan_de_negocio $plan_de_negocio)
     {
-        //
+        return view('plan_de_negocio.show');
     }
 
     /**
