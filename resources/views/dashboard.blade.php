@@ -15,7 +15,7 @@
         </div>
     </x-slot>
 
-    <div class="flex flex-wrap mx-auto justify-center md:justify-start px-auto dark:text-gray-100">
+    <div class="flex flex-wrap mx-auto justify-center  px-auto dark:text-gray-100">
         @foreach ($planes_de_negocios as $plan_de_negocio)
             <div class="
                 w-full
