@@ -55,7 +55,7 @@
             <li class="list">
               <a href="#" class="nav-link">
                 <i class="bx bx-heart icon"></i>
-                <span class="link">Producto y/o servicio</span>
+                <span class="link">Producto y/o Servicio</span>
               </a>
             </li>
           </ul>
