@@ -2,12 +2,12 @@
 
     <x-sidebar :plan_de_negocio="$plan_de_negocio"></x-sidebar>
     <div class="text-white">{{ $plan_de_negocio->producto }}</div><!--TEST-->
-    <div class="flex flex-col mx-auto">
-        <div class="mx-auto">
+    <div class="w-full">
+        <div class="flex items-center justify-center">
             <h1 class="text-gray-100 py-6 text-2xl">Producto y/o servicio</h1>
         </div>
 
-        <div> 
+        <div class="mx-20"> 
             <a href="{{ route('plan_de_negocio.producto.create',[$plan_de_negocio]) }}" class="mb-4 inline-flex items-center px-4 py-2 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 Agregar producto
             </a>

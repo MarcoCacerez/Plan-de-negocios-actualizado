@@ -4,7 +4,7 @@
         <div class="flex items-center justify-center">
             <h1 class="text-gray-100 py-6 text-2xl">Foda de la empresa</h1>
         </div>
-        <div class="mx-4 grid gap-2 grid-cols-2 grid-rows-2 dark:text-gray-100">
+        <div class="mx-20 grid gap-2 grid-cols-2 grid-rows-2 dark:text-gray-100">
             
             <div class="border divide-y">
                 <div class="flex items-stretch justify-center  py-2 dark:bg-gray-700 space-x-2">
