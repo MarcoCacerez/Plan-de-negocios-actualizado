@@ -26,9 +26,9 @@
                 my-2
                 md:w-1/4
                 dark:bg-gray-700
-                hover:bg-gray-300
+                hover:bg-gray-200
                 dark:hover:bg-gray-800"
-                href="{{ route('plan_de_negocio.show', [$plan_de_negocio]) }}"
+                href="{{ route('plan_de_negocio.generalidades.index', [$plan_de_negocio]) }}"
                 >
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">{{ $plan_de_negocio->nombre }}</div>

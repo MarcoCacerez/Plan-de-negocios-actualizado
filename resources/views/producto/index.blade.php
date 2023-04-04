@@ -4,7 +4,7 @@
     <div class="text-white">{{ $plan_de_negocio->producto }}</div><!--TEST-->
     <div class="w-full">
         <div class="flex items-center justify-center">
-            <h1 class="text-gray-100 py-6 text-2xl">Producto y/o servicio</h1>
+            <h1 class="dark:text-gray-100 py-6 text-2xl">Producto y/o servicio</h1>
         </div>
 
         <div class="mx-20"> 

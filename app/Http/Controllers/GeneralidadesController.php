@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Generalidades;
+use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
 
 class GeneralidadesController extends Controller
@@ -10,9 +11,10 @@ class GeneralidadesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Plan_de_negocio $plan_de_negocio)
     {
-        //
+        return view('generalidades.index', compact('plan_de_negocio'));
+
     }
 
     /**

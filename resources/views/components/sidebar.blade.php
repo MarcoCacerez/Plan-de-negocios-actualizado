@@ -4,7 +4,7 @@
 <div>
     <div class="
         hidden
-        w-3/4
+        w-50
         min-h-screen
         p-4
         md:flex
@@ -23,7 +23,7 @@
             </div>
             
             <!--DROPDOWN-->
-            <div class="flex flex-col">
+            <div class="flex flex-col divide-y divide-gray-600">
                 <div
                     x-data="{
                         open: false,
@@ -50,8 +50,8 @@
                         :aria-expanded="open"
                         :aria-controls="$id('dropdown-button')"
                         type="button"
-                        class="flex w-full justify-center items-center gap-2 p-4 rounded-md
-                        hover:bg-gray-700"
+                        class="flex w-full justify-center items-center gap-2 p-4 my-1 rounded-md
+                        hover:bg-gray-200 hover:dark:bg-gray-700"
                         >
                         Generalidades
 
@@ -69,21 +69,21 @@
                         x-on:click.outside="close($refs.button)"
                         :id="$id('dropdown-button')"
                         style="display: none;"
-                        class="left-0 mt-2 rounded-md"
+                        class="left-0 mt-2 rounded-md m-2"
                         >
-                        <a href="{{ route('plan_de_negocio.generalidades.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="{{ route('plan_de_negocio.generalidades.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Información general de la empresa
                         </a>
 
-                        <a href="{{ route('plan_de_negocio.foda.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="{{ route('plan_de_negocio.foda.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Análisis foda
                         </a>
 
-                        <a href="{{ route('plan_de_negocio.modelo_canvas.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="{{ route('plan_de_negocio.modelo_canvas.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Modelo canvas
                         </a>
 
-                        <a href="{{ route('plan_de_negocio.producto.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="{{ route('plan_de_negocio.producto.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Producto y/o Servicio
                         </a>
                     </div>
@@ -115,8 +115,8 @@
                         :aria-expanded="open"
                         :aria-controls="$id('dropdown-button')"
                         type="button"
-                        class="flex w-full justify-center items-center gap-2 p-4 rounded-md
-                        hover:bg-gray-700"
+                        class="flex w-full justify-center items-center gap-2 p-4 my-1 rounded-md
+                        hover:bg-gray-200 hover:dark:bg-gray-700"
                         >
                         Administración de recursos
 
@@ -134,13 +134,13 @@
                         x-on:click.outside="close($refs.button)"
                         :id="$id('dropdown-button')"
                         style="display: none;"
-                        class="left-0 mt-2 rounded-md"
+                        class="left-0 mt-2 rounded-md m-2"
                         >
-                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Cultura organizacional
                         </a>
 
-                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Estructura legal
                         </a>
                     </div>
@@ -173,8 +173,8 @@
                         :aria-expanded="open"
                         :aria-controls="$id('dropdown-button')"
                         type="button"
-                        class="flex w-full justify-center items-center gap-2 p-4 rounded-md
-                        hover:bg-gray-700"
+                        class="flex w-full justify-center items-center gap-2 p-4 my-1 rounded-md
+                        hover:bg-gray-200 hover:dark:bg-gray-700"
                         >
                         Imagen corporativa y marketing
 
@@ -192,17 +192,17 @@
                         x-on:click.outside="close($refs.button)"
                         :id="$id('dropdown-button')"
                         style="display: none;"
-                        class="left-0 mt-2 rounded-md"
+                        class="left-0 mt-2 rounded-md m-2"
                         >
-                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Imagen de la empresa
                         </a>
 
-                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Publicidad y promoción
                         </a>
 
-                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-700 disabled:text-gray-500">
+                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Plan de mercadotecnia
                         </a>
                     </div>
