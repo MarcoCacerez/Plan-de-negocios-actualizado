@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\User;
 use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -27,9 +29,18 @@ class ProductoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'precio_de_costo' => 'required',
+            'precio_de_venta' => 'required',
+            'descripcion' => 'required',
+        ]);
+
+        $producto = $plan_de_negocio->productos()->create($validated);
+
+        return redirect()->route('plan_de_negocio.producto.index', compact('plan_de_negocio'));
     }
 
     /**
