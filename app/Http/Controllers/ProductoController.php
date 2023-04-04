@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -10,17 +11,17 @@ class ProductoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Plan_de_negocio $plan_de_negocio)
     {
-        //
+        return view('producto.index', compact('plan_de_negocio'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Plan_de_negocio $plan_de_negocio)
     {
-        //
+        return view('producto.create', compact('plan_de_negocio'));
     }
 
     /**

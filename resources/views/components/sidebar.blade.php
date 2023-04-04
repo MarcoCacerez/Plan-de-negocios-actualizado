@@ -13,7 +13,7 @@
     <div class="
         hidden
         w-50
-        h-screen
+        min-h-screen
         p-4
         md:flex
         dark:bg-gray-800
