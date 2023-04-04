@@ -43,6 +43,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>                          
                     </button>
+                    <div>
+                        <form action="" method="post">
+                            @csrf
+                            <input type="hidden" name="tipo" value="Amenazas">
+                            <label for="descripcion">
+                                <input type="text" name="descripcion" id="descripcion">
+                            </label>
+                        </form>
+                    </div>
                 </div>
                 <div class="flex flex-col divide-y divide-gray-500 dark:bg-gray-800 rounded-b-md">
                     <div class="pl-2 py-2">lorem</div>
