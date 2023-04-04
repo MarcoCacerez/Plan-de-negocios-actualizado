@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Foda;
+use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
 
 class FodaController extends Controller
@@ -10,9 +11,12 @@ class FodaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Plan_de_negocio $plan_de_negocio)
     {
-        //
+        
+        return view('foda.index',[
+            'plan_de_negocio' => $plan_de_negocio,
+        ]);
     }
 
     /**
