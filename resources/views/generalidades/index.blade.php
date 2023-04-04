@@ -14,8 +14,8 @@
                         <label class="block uppercase tracking-wide dark:text-gray-200 text-x2s font-bold mb-2" for="grid-first-name">
                             Información general del negocio
                         </label>
-                        <textarea name="descripcion" id="descripcion" class="rounded bg-gray-300 md:w-1/2 md:h-40"
-                            >{{old('descripcion')}}
+                        <textarea name="descripcion" id="descripcion" class="rounded dark:bg-gray-300 dark:text-gray-700 md:w-1/2 md:h-40"
+                            >{{ $plan_de_negocio->descripcion }}
                         </textarea>              
                     
                     </div>
