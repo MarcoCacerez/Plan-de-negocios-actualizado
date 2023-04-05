@@ -18,7 +18,7 @@ class FodaController extends Controller
             "amenazas" => $plan_de_negocio->fodas()->where('tipo','Amenazas')->get(),
             "fortalezas" => $plan_de_negocio->fodas()->where('tipo','Fortalezas')->get(),
             "debilidades" => $plan_de_negocio->fodas()->where('tipo','Debilidades')->get(),
-            "oportunidades" => $plan_de_negocio->fodas()->where('tipo','Debilidades')->get(),
+            "oportunidades" => $plan_de_negocio->fodas()->where('tipo','Oportunidades')->get(),
         ];
         
         //dd($foda_data['amenazas'][0]->descripcion);
