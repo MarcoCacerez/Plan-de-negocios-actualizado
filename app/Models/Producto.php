@@ -10,6 +10,7 @@ class Producto extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     public function plan_de_negocio():BelongsTo
     {
         return $this->belongsTo(Plan_de_negocio::class);
