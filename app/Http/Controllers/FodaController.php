@@ -13,9 +13,19 @@ class FodaController extends Controller
      */
     public function index(Plan_de_negocio $plan_de_negocio)
     {
+        $plan_de_negocio->load('fodas');
+        $foda_data = [
+            "amenazas" => $plan_de_negocio->fodas()->where('tipo','Amenazas')->get(),
+            "fortalezas" => $plan_de_negocio->fodas()->where('tipo','Fortalezas')->get(),
+            "debilidades" => $plan_de_negocio->fodas()->where('tipo','Debilidades')->get(),
+            "oportunidades" => $plan_de_negocio->fodas()->where('tipo','Debilidades')->get(),
+        ];
         
+        //dd($foda_data['amenazas'][0]->descripcion);
+
         return view('foda.index',[
             'plan_de_negocio' => $plan_de_negocio,
+            'foda_data' => $foda_data,
         ]);
     }
 
@@ -37,6 +47,15 @@ class FodaController extends Controller
             'tipo' => 'required',
             'descripcion' => 'required',
         ]);
+
+        $plan_de_negocio->fodas()->create($validated);
+
+        return redirect()->route(
+            'plan_de_negocio.foda.index',
+            [
+                'plan_de_negocio' => $plan_de_negocio,
+            ]
+        );
     }
 
     /**
