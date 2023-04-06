@@ -77,9 +77,24 @@ class FodaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Foda $foda)
+    public function update(Request $request, Foda $foda, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        //Recuperamos los valores enviados desde el formulario de actualizacion
+        $validated = $request->validate([
+            "tipo" => "required",
+            "descripcion" => "required"
+        ]);
+        
+        // Aplicamos la actualizacion al elemento en la base de datos
+        $foda->update($validated);
+
+        // Redireccionamos de regreso a la pantalla inicial del foda
+        return redirect()->route(
+            'plan_de_negocio.foda.index',
+            [
+                'plan_de_negocio' => $plan_de_negocio,
+            ]
+        );
     }
 
     /**
