@@ -71,8 +71,11 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy(Plan_de_negocio $plan_de_negocio, Producto $producto)
     {
-        //
+        Producto::destroy($producto->id);
+
+        $listaproductos = $plan_de_negocio->productos()->paginate(5);
+        return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
     }
 }
