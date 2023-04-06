@@ -63,9 +63,19 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Producto $producto)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'precio_de_costo' => 'required',
+            'precio_de_venta' => 'required',
+            'descripcion' => 'required',
+        ]);
+
+        $producto->update($validated);
+
+        $listaproductos = $plan_de_negocio->productos()->paginate(4);
+        return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
     }
 
     /**
