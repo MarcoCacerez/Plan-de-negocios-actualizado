@@ -15,7 +15,8 @@ class ProductoController extends Controller
      */
     public function index(Plan_de_negocio $plan_de_negocio)
     {
-        return view('producto.index', compact('plan_de_negocio'));
+        $listaproductos = $plan_de_negocio->productos()->paginate(5);
+        return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
     }
 
     /**
