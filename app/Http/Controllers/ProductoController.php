@@ -15,7 +15,7 @@ class ProductoController extends Controller
      */
     public function index(Plan_de_negocio $plan_de_negocio)
     {
-        $listaproductos = $plan_de_negocio->productos()->paginate(5);
+        $listaproductos = $plan_de_negocio->productos()->paginate(4);
         return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
     }
 
@@ -55,9 +55,9 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $producto)
+    public function edit(Plan_de_negocio $plan_de_negocio, Producto $producto)
     {
-        //
+        return view('producto.edit', compact('plan_de_negocio', 'producto'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductoController extends Controller
     {
         Producto::destroy($producto->id);
 
-        $listaproductos = $plan_de_negocio->productos()->paginate(5);
+        $listaproductos = $plan_de_negocio->productos()->paginate(4);
         return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
     }
 }
