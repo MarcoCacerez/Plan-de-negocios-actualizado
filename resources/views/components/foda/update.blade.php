@@ -5,7 +5,7 @@
 
 <div class="flex dark:text-gray-900" :class="open ? '' : 'hidden'">
 
-    <form method="POST" action="">
+    <form method="POST" action="{{ route('plan_de_negocio.foda.update',[$plan_de_negocio,$foda]) }}">
         @csrf
         @method('patch')
 
