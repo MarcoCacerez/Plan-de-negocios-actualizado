@@ -13,9 +13,14 @@ class ProductoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Plan_de_negocio $plan_de_negocio)
+    public function index(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        $listaproductos = $plan_de_negocio->productos()->paginate(4);
+        if(request('search')){
+            $listaproductos = $plan_de_negocio->productos()->where('nombre', 'like', '%' . request('search') . '%')->paginate(4);
+        } else {
+            $listaproductos = $plan_de_negocio->productos()->paginate(4);
+        }
+        
         return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
     }
 
@@ -87,5 +92,10 @@ class ProductoController extends Controller
 
         $listaproductos = $plan_de_negocio->productos()->paginate(4);
         return view('producto.index', compact('plan_de_negocio', 'listaproductos'));
+    }
+
+    public function search(Producto $producto)
+    {
+        //
     }
 }
