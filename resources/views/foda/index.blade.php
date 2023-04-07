@@ -13,7 +13,16 @@
                 <div class="flex flex-col divide-y divide-gray-500 dark:bg-gray-800 rounded-b-md">
                     @if(count($foda_data['fortalezas'])>0)                        
                         @foreach($foda_data['fortalezas'] as $fortaleza)
-                        <div class="mx-auto py-2">{{ $fortaleza->descripcion }}</div>
+                        <div x-data="{ open: false }" class="flex items-center mx-auto py-2 space-x-2">
+                            <span :class="!open ? '' : 'hidden'">{{ $fortaleza->descripcion }}</span>
+                            <button :class="!open ? '' : 'hidden'" type="button" @click="open = !open">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                    <path d="M16.7574 2.99666L14.7574 4.99666H5V18.9967H19V9.2393L21 7.2393V19.9967C21 20.5489 20.5523 20.9967 20 20.9967H4C3.44772 20.9967 3 20.5489 3 19.9967V3.99666C3 3.44438 3.44772 2.99666 4 2.99666H16.7574ZM20.4853 2.09717L21.8995 3.51138L12.7071 12.7038L11.2954 12.7062L11.2929 11.2896L20.4853 2.09717Z" />
+                                </svg>
+                            </button>
+                            <x-foda.update x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$fortaleza"></x-foda.update>
+                            <x-foda.delete x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$fortaleza"></x-foda.delete>
+                        </div>
                         @endforeach
                     @else
                         <div class="mx-auto pl-2 py-5"></div>
@@ -28,7 +37,16 @@
                 <div class="flex flex-col divide-y divide-gray-500 dark:bg-gray-800 rounded-b-md">
                     @if(count($foda_data['debilidades']) > 0)
                         @foreach($foda_data['debilidades'] as $debilidad)
-                            <div class="mx-auto py-2">{{ $debilidad->descripcion }}</div>
+                            <div x-data="{ open: false }" class="flex items-center mx-auto py-2 space-x-2">
+                                <span :class="!open ? '' : 'hidden'">{{ $debilidad->descripcion }}</span>
+                                <button :class="!open ? '' : 'hidden'" type="button" @click="open = !open">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M16.7574 2.99666L14.7574 4.99666H5V18.9967H19V9.2393L21 7.2393V19.9967C21 20.5489 20.5523 20.9967 20 20.9967H4C3.44772 20.9967 3 20.5489 3 19.9967V3.99666C3 3.44438 3.44772 2.99666 4 2.99666H16.7574ZM20.4853 2.09717L21.8995 3.51138L12.7071 12.7038L11.2954 12.7062L11.2929 11.2896L20.4853 2.09717Z" />
+                                    </svg>
+                                </button>
+                                <x-foda.update x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$debilidad"></x-foda.update>
+                                <x-foda.delete x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$debilidad"></x-foda.delete>
+                            </div>
                         @endforeach
                     @else
                         <div class="mx-auto pl-2 py-5"></div>
@@ -43,7 +61,16 @@
                 <div class="flex flex-col divide-y divide-gray-500 dark:bg-gray-800 rounded-b-md">
                     @if(count($foda_data['amenazas'])>0)
                         @foreach($foda_data['amenazas'] as $amenaza)
-                            <div class="mx-auto py-2">{{ $amenaza->descripcion }}</div>
+                            <div x-data="{ open: false }" class="flex items-center mx-auto py-2 space-x-2">
+                                <span :class="!open ? '' : 'hidden'">{{ $amenaza->descripcion }}</span>
+                                <button :class="!open ? '' : 'hidden'" type="button" @click="open = !open">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M16.7574 2.99666L14.7574 4.99666H5V18.9967H19V9.2393L21 7.2393V19.9967C21 20.5489 20.5523 20.9967 20 20.9967H4C3.44772 20.9967 3 20.5489 3 19.9967V3.99666C3 3.44438 3.44772 2.99666 4 2.99666H16.7574ZM20.4853 2.09717L21.8995 3.51138L12.7071 12.7038L11.2954 12.7062L11.2929 11.2896L20.4853 2.09717Z" />
+                                    </svg>
+                                </button>
+                                <x-foda.update x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$amenaza"></x-foda.update>
+                                <x-foda.delete x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$amenaza"></x-foda.delete>
+                            </div>
                         @endforeach
                     @else
                         <div class="mx-auto pl-2 py-5"></div>
@@ -59,7 +86,16 @@
                 <div class="flex flex-col divide-y divide-gray-500 dark:bg-gray-800 rounded-b-md">
                     @if(count($foda_data['oportunidades'])>0)
                         @foreach($foda_data['oportunidades'] as $oportunidad)
-                            <div class="mx-auto py-2">{{ $oportunidad->descripcion }}</div>
+                            <div x-data="{ open: false }" class="flex items-center mx-auto py-2 space-x-2">
+                                <span :class="!open ? '' : 'hidden'">{{ $oportunidad->descripcion }}</span>
+                                <button :class="!open ? '' : 'hidden'" type="button" @click="open = !open">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M16.7574 2.99666L14.7574 4.99666H5V18.9967H19V9.2393L21 7.2393V19.9967C21 20.5489 20.5523 20.9967 20 20.9967H4C3.44772 20.9967 3 20.5489 3 19.9967V3.99666C3 3.44438 3.44772 2.99666 4 2.99666H16.7574ZM20.4853 2.09717L21.8995 3.51138L12.7071 12.7038L11.2954 12.7062L11.2929 11.2896L20.4853 2.09717Z" />
+                                    </svg>
+                                </button>
+                                <x-foda.update x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$oportunidad"></x-foda.update>
+                                <x-foda.delete x-show="open" :plan_de_negocio="$plan_de_negocio" :foda="$oportunidad"></x-foda.delete>
+                            </div>
                         @endforeach
                     @else
                         <div class="mx-auto pl-2 py-5"></div>
