@@ -1,7 +1,7 @@
 <x-app-layout class="flex flex-nowrap">
 
     <x-sidebar :plan_de_negocio="$plan_de_negocio"></x-sidebar>
-    <div class="w-full">
+    <div class="w-full h-screen overflow-auto">
         <div class="mx-20 flex items-center justify-center">
             <h1 class="dark:text-gray-100 my-6 text-2xl">Producto y/o servicio</h1>
         </div>
