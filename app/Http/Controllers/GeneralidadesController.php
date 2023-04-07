@@ -13,8 +13,10 @@ class GeneralidadesController extends Controller
      */
     public function index(Plan_de_negocio $plan_de_negocio)
     {
-        return view('generalidades.index', compact('plan_de_negocio'));
+        $plan_de_negocio->load('generalidades');
+        $generalidades_data = $plan_de_negocio->generalidades();
 
+        return view('generalidades.index', compact('plan_de_negocio', 'generalidades_data'));
     }
 
     /**

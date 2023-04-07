@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="flex justify-center items-center"> 
-                    <a href="{{ url()->previous() }}" class="rounded bg-red-500 m-6 px-4 py-2 hover:bg-red-700 dark:text-white">Cancelar</a>
+                    <a href="{{ route('plan_de_negocio.producto.index', [$plan_de_negocio]) }}" class="rounded bg-red-500 m-6 px-4 py-2 hover:bg-red-700 dark:text-white">Cancelar</a>
                     {{-- <input  type="submit" value="Crear"> --}}
                     <button class="rounded bg-blue-500 m-6 px-4 py-2 hover:bg-blue-700 dark:text-white">Crear</button> 
                 </div>
