@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('generalidades', function (Blueprint $table) {
             $table->id();
             $table->foreignId('plan_de_negocio_id')->constrained('plan_de_negocios');
-            $table->text('antecedentes');
-            $table->text('descripcion_producto');
-            $table->text('aspectos_innovadores');
+            $table->text('antecedentes')->nullable();
+            $table->text('descripcion_producto')->nullable();
+            $table->text('aspectos_innovadores')->nullable();
             $table->timestamps();
         });
     }
