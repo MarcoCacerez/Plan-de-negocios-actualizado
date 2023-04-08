@@ -5,7 +5,7 @@
 ])
 
 <div class="flex flex-wrap">
-    <header x-data="{open: false}" :class="open ? 'flex-wrap' : ''" class="flex w-full items-center justify-between p-4 dark:bg-zinc-700">
+    <header x-data="{open: false}" :class="open ? 'flex-nowrap' : ''" class="flex w-full items-center justify-between p-4 dark:bg-zinc-700">
 		<span class="dark:text-gray-50">{{ $tipo }}</span>
 		<button @click="open = !open" :class="open ? 'hidden' : 'flex'" class=" items-center space-x-2 rounded p-2 dark:bg-zinc-500" type="button">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5 fill-gray-50">
