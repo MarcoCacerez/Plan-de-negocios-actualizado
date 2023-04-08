@@ -19,12 +19,14 @@
 		<div class="h-fit w-full divide-y px-2 dark:text-gray-50">
 			@if(count($array_canvas)>0) 
 				@foreach($array_canvas as $canva_item)
-					<div class="flex w-full px-1 py-2 mx-auto my-2 items-center justify-between">
-						<span>{{ $canva_item->descripcion }}</span>
-						<div class="space-x-2">
-							<button type="button">Editar</button>
-							<button type="button">Eliminar</button>
+					<div x-data="{open:false}" class="flex w-full px-1 py-2 mx-auto my-2 items-center justify-between">
+						<span class="w-3/4" :class="open ? 'hidden' : ''">{{ $canva_item->descripcion }}</span>
+						<div :class="open ? 'hidden' : ''" class="flex flex-nowrap w-1/4 items-center justify-center space-x-2">
+							<button @click="open = !open" type="button">Editar</button>
+							{{-- <button type="button">Eliminar</button> --}}
+							<x-modelo_canvas.delete :plan_de_negocio="$plan_de_negocio" :canva_item="$canva_item" />
 						</div>
+						<x-modelo_canvas.edit :plan_de_negocio="$plan_de_negocio" :canva_item="$canva_item" />
 					</div>
 				@endforeach
 			@endif

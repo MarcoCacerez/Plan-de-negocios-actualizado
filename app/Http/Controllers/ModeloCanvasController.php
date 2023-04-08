@@ -78,16 +78,31 @@ class ModeloCanvasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Modelo_canvas $modelo_canvas)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Modelo_canvas $modelo_canva)
     {
-        //
+        $validated = $request->validate([
+            "cat_modelo" => "required",
+            "descripcion" => "required",
+        ]);
+
+        $modelo_canva->update($validated);
+
+        return redirect()->route('plan_de_negocio.modelo_canvas.index',
+        [
+            'plan_de_negocio' => $plan_de_negocio,
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Modelo_canvas $modelo_canvas)
+    public function destroy(Plan_de_negocio $plan_de_negocio,Modelo_canvas $modelo_canva)
     {
-        //
+        $modelo_canva->delete();
+
+        return redirect()->route('plan_de_negocio.modelo_canvas.index',
+        [
+            'plan_de_negocio' => $plan_de_negocio,
+        ]);
     }
 }
