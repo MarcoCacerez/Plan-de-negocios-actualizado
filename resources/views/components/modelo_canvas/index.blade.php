@@ -16,15 +16,17 @@
 		<x-modelo_canvas.create :plan_de_negocio="$plan_de_negocio" :tipo="$tipo"></x-modelo_canvas.create>
     </header>
     <div class="flex w-full dark:bg-zinc-800">
-		<div class="h-fit w-full space-y-4 divide-y-2 p-4 dark:text-gray-50">
+		<div class="h-fit w-full divide-y px-2 dark:text-gray-50">
 			@if(count($array_canvas)>0) 
-				<div class="flex w-full items-center justify-between">
-					<span>Contenido</span>
-					<div class="space-x-2">
-						<button type="button">Editar</button>
-						<button type="button">Eliminar</button>
+				@foreach($array_canvas as $canva_item)
+					<div class="flex w-full px-1 py-2 mx-auto my-2 items-center justify-between">
+						<span>{{ $canva_item->descripcion }}</span>
+						<div class="space-x-2">
+							<button type="button">Editar</button>
+							<button type="button">Eliminar</button>
+						</div>
 					</div>
-				</div>
+				@endforeach
 			@endif
 		</div>
     </div>

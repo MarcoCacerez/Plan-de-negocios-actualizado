@@ -46,7 +46,17 @@ class ModeloCanvasController extends Controller
      */
     public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $validated = $request->validate([
+            "cat_modelo" => "required",
+            "descripcion" => "required",
+        ]);
+
+        $plan_de_negocio->modelos_canvas()->create($validated);
+
+        return redirect()->route('plan_de_negocio.modelo_canvas.index',
+        [
+            'plan_de_negocio' => $plan_de_negocio,
+        ]);
     }
 
     /**
