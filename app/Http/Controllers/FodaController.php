@@ -100,8 +100,14 @@ class FodaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Foda $foda)
+    public function destroy(Plan_de_negocio $plan_de_negocio, Foda $foda)
     {
-        //
+        $foda->delete();
+        return redirect()->route(
+            'plan_de_negocio.foda.index',
+            [
+                'plan_de_negocio' => $plan_de_negocio,
+            ]
+        );
     }
 }
