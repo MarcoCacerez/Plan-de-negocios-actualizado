@@ -38,4 +38,9 @@ class Plan_de_negocio extends Model
     {
         return $this->hasOne(Generalidades::class);
     }
+
+    public function estructura_legal():HasOne
+    {
+        return $this->hasOne(Estructura_legal::class);
+    }
 }

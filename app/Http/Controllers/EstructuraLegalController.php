@@ -27,9 +27,16 @@ class EstructuraLegalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $validated = $request->validate([
+            'tipo_persona' => 'required',
+            'constitucion_legal' => 'required',
+            'regimen_fiscal' => 'required',
+        ]);
+
+        $estructura_legal = $plan_de_negocio->estructura_legal()->create($validated);
+        return redirect()->route('plan_de_negocio.estructura_legal.index', compact('plan_de_negocio'));
     }
 
     /**
@@ -43,24 +50,33 @@ class EstructuraLegalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Estructura_legal $estructura_legal)
+    public function edit(Plan_de_negocio $plan_de_negocio, Estructura_legal $estructura_legal)
     {
-        //
+        return view('estructura_legal.edit', compact('plan_de_negocio', 'estructura_legal'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Estructura_legal $estructura_legal)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Estructura_legal $estructura_legal)
     {
-        //
+        $validated = $request->validate([
+            'tipo_persona' => 'required',
+            'constitucion_legal' => 'required',
+            'regimen_fiscal' => 'required',
+        ]);
+
+        $estructura_legal->update($validated);
+        return view('estructura_legal.index', compact('plan_de_negocio'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Estructura_legal $estructura_legal)
+    public function destroy(Plan_de_negocio $plan_de_negocio, Estructura_legal $estructura_legal)
     {
-        //
+        Estructura_legal::destroy($estructura_legal->id);
+
+        return view('estructura_legal.index', compact('plan_de_negocio'));
     }
 }

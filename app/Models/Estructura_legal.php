@@ -9,6 +9,7 @@ class Estructura_legal extends Model
 {
     use HasFactory;
     protected $table = 'estructuras_legales';
+    protected $guarded = [];
     
     public function plan_de_negocio():BelongsTo
     {

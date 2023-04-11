@@ -3,19 +3,19 @@
     <x-sidebar :plan_de_negocio="$plan_de_negocio"></x-sidebar>
     <div class="w-full h-screen overflow-auto">
         <div class="mx-20 flex items-center justify-center">
-            <h1 class="dark:text-gray-100 my-6 text-2xl">Estructura legal</h1>
+            <h1 class="dark:text-gray-100 my-6 text-2xl">Actualizando la estructura legal</h1>
         </div>
 
         <div class="mx-20 flex flex-col items-center justify-center">
-            @if($plan_de_negocio->estructura_legal == null)
-            <form method="POST" action="{{ route('plan_de_negocio.estructura_legal.store', [$plan_de_negocio]) }}">
+            <form method="POST" action="{{ route('plan_de_negocio.estructura_legal.update', [$plan_de_negocio, $estructura_legal]) }}">
+                @method('PATCH')
                 @csrf
                 <div x-data="{tipo: 1}">
                     <label class="text-white">Tipo de persona
                         <select x-model="tipo" name="tipo_persona" x-on:change="$let = document.querySelectorAll('input'); $let.forEach(element => element.checked = false);"
                                 class="text-gray-800 ml-4 rounded-md">
-                            <option :value="1">Persona física</option>
-                            <option :value="2">Persona moral</option>
+                                    <option :value="1">Persona física</option>
+                                    <option :value="2">Persona moral</option>
                         </select>
                     </label>
 
@@ -139,58 +139,13 @@
                             </tbody>
                         </table>
                     </div>
-                
                 </div>
 
-                <div class="flex justify-center items-center"> 
-                    <input type="submit" value="Guardar" class="cursor-pointer mr-4 text-white space-x-2 rounded p-2 dark:bg-blue-800 dark:hover:bg-blue-900">
+                <div class="flex justify-center items-center">
+                    <a href="{{ route('plan_de_negocio.estructura_legal.index', [$plan_de_negocio]) }}" class="rounded bg-red-500 m-6 px-4 py-2 hover:bg-red-700 dark:text-white">Cancelar</a>
+                    {{-- <input  type="submit" value="Crear"> --}}
+                    <button class="rounded bg-green-600 m-6 px-4 py-2 hover:bg-green-800 dark:text-white">Actualizar</button>
                 </div>
-            </form>
-            @else
-            <!--Detalles guardados de la estructura legal-->
-                <div class="text-white">
-                    <div class="max-w-sm w-full lg:max-w-full lg:flex">
-                        <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                            <div class="mb-8">
-                                <div class="text-gray-900 font-bold text-xl m-4 mb-6 font-mono text-center">Detalles de la estructura legal</div>
-                                <div class="divide-y divide-neutral-300">
-                                    <p class="text-gray-700 text-base font-mono m-4"><strong>Tipo de persona con el que se dió registro a la empresa:</strong> <br>
-                                        @if ( $plan_de_negocio->estructura_legal->tipo_persona == 1)
-                                            PERSONA FÍSICA
-                                        @else
-                                            PERSONA MORAL
-                                        @endif
-                                    </p>
-
-                                    <p class="text-gray-700 text-base font-mono m-4"><strong>Constitución legal:</strong> <br>
-                                        {{ $plan_de_negocio->estructura_legal->constitucion_legal }}
-                                    </p>
-
-                                    <p class="text-gray-700 text-base font-mono m-4"><strong>Régimen fiscal de la empresa:</strong> <br>
-                                        {{ $plan_de_negocio->estructura_legal->regimen_fiscal }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="inline-flex">
-                    <a href="{{ route('plan_de_negocio.estructura_legal.edit', [$plan_de_negocio, $plan_de_negocio->estructura_legal]) }}" class="mt-6 inline-flex items-center px-2 py-2 bg-blue-700 hover:bg-blue-800 text-white text-md font-medium rounded-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
-                        <div class="mx-2">Editar</div>
-                    </a>
-                    <form method="post" action="{{ route('plan_de_negocio.estructura_legal.destroy', [$plan_de_negocio, $plan_de_negocio->estructura_legal]) }}">
-                        @method('delete')
-                        @csrf
-                        <button type="submit"
-                            onclick="return confirm('¿Eliminar la estructura legal guardada?');"
-                            class="mt-6 inline-flex items-center px-2 py-2 bg-red-700 hover:bg-red-800 text-white text-md font-medium rounded-md ml-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                            <div class="mx-2">Eliminar</div>
-                        </button>
-                    </form>
-                </div>
-            @endif
+            <form>
         </div>
-    </div>
 </x-app-layout>
