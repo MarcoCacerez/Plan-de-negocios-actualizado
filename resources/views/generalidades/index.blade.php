@@ -19,7 +19,7 @@
                 <div>
                     <input id="2" class="peer hidden" name="option" type="radio" value="Producto"  x-model="seccion">
                     <label for="2" class="text-white block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-gray-600 peer-checked:font-bold peer-checked:text-white">
-                        Descripción del producto y/o servicio</label>
+                        Producto y/o servicio</label>
                 </div>
                     
                 <div>
@@ -80,7 +80,7 @@
                     <form method="POST" x-data="{ show: false }" class="w-full" action="{{ route('plan_de_negocio.generalidades.store', [$plan_de_negocio]) }}">
                         @csrf
                         <header class="flex w-full items-center justify-between p-4 dark:bg-gray-800 rounded-t-lg">
-                            <span class="dark:text-gray-50">Descripción de producto y/o servicio</span>
+                            <span class="dark:text-gray-50">Descripción general del producto y/o servicio</span>
                             <div class="flex inline-flex">
                                 <input x-show="show" type="submit" value="Guardar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
                                 <div @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }" class="cursor-pointer text-white flex items-center space-x-2 rounded p-2 dark:bg-gray-600 dark:hover:bg-gray-700">
@@ -99,7 +99,7 @@
                         @method('PATCH')
                         @csrf
                         <header class="flex w-full items-center justify-between p-4 dark:bg-gray-800 rounded-t-lg">
-                            <span class="dark:text-gray-50">Descripción de producto y/o servicio</span>
+                            <span class="dark:text-gray-50">Descripción general del producto y/o servicio</span>
                             <div class="flex inline-flex">
                                 <input x-show="show" type="submit" value="Actualizar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
                                 <div @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }" class="cursor-pointer text-white flex items-center space-x-2 rounded p-2 dark:bg-gray-600 dark:hover:bg-gray-700">
