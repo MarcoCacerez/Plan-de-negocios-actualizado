@@ -43,4 +43,9 @@ class Plan_de_negocio extends Model
     {
         return $this->hasOne(Estructura_legal::class);
     }
+
+    public function cultura_organizacional():HasOne 
+    {
+        return $this->hasOne(Cultura_organizacional::class);
+    }
 }

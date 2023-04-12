@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cultura_organizacional;
+use App\Models\Plan_de_negocio;
 use Illuminate\Http\Request;
 
 class CulturaOrganizacionalController extends Controller
@@ -10,9 +11,20 @@ class CulturaOrganizacionalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $edit = true;
+        $plan_de_negocio->load('cultura_organizacional');
+
+        if(!$plan_de_negocio->cultura_organizacional()->exists()){
+            $edit = false;
+        }
+
+        return view('cultura_organizacional.index', [
+            "plan_de_negocio" => $plan_de_negocio,
+            "edit" => $edit
+        ]);
+        
     }
 
     /**
@@ -26,9 +38,21 @@ class CulturaOrganizacionalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,Plan_de_negocio $plan_de_negocio)
     {
-        //
+        $validated = $request->validate([
+            "mision" => "required",
+            "vision" => "required",
+            "objetivos" => "required",
+            "valores" => "required",
+            "metas" => "required",
+        ]);
+
+        $plan_de_negocio->cultura_organizacional()->create($validated);
+
+        return redirect()->route('plan_de_negocio.cultura_organizacional.index', [
+            "plan_de_negocio" => $plan_de_negocio,
+        ]);
     }
 
     /**
