@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('imagenes_corporativas', function (Blueprint $table) {
+        Schema::create('publicidadades_promociones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('plan_de_negocio_id')->constrained('plan_de_negocios');
-            $table->string('nombre_corporativo');
-            $table->text('justificacion_nombre');
-            $table->binary('logotipo');
-            $table->text('justificacion_logo');
-            $table->string('eslogan');
-            $table->text('justificacion_eslogan');
+            $table->text('plan_promocion');
+            $table->text('comercializacion');
+            $table->text('plan_mercadotecnia');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('imagenes_corporativas');
+        Schema::dropIfExists('publicidadades_promociones');
     }
 };
