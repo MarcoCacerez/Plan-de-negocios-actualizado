@@ -13,12 +13,12 @@ class CulturaOrganizacionalController extends Controller
      */
     public function index(Plan_de_negocio $plan_de_negocio)
     {
-        $edit = true;
         $plan_de_negocio->load('cultura_organizacional');
+        $edit = $plan_de_negocio->cultura_organizacional()->exists();
 
-        if(!$plan_de_negocio->cultura_organizacional()->exists()){
-            $edit = false;
-        }
+        // if($plan_de_negocio->cultura_organizacional()->exists()){
+        //     $edit = true;
+        // }
 
         return view('cultura_organizacional.index', [
             "plan_de_negocio" => $plan_de_negocio,
@@ -74,9 +74,21 @@ class CulturaOrganizacionalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cultura_organizacional $cultura_organizacional)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Cultura_organizacional $cultura_organizacional)
     {
-        //
+        $validated = $request->validate([
+            "mision" => "required",
+            "vision" => "required",
+            "objetivos" => "required",
+            "valores" => "required",
+            "metas" => "required",
+        ]);
+
+        $cultura_organizacional->update($validated);
+
+        return redirect()->route('plan_de_negocio.cultura_organizacional.index', [
+            "plan_de_negocio" => $plan_de_negocio,
+        ]);
     }
 
     /**
