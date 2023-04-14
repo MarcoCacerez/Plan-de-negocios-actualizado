@@ -194,7 +194,7 @@
                         style="display: none;"
                         class="left-0 mt-2 rounded-md m-2"
                         >
-                        <a href="#" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
+                        <a href="{{ route('plan_de_negocio.imagen_corporativa.index',[$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left text-sm hover:bg-gray-200 hover:dark:bg-gray-700 disabled:text-gray-500">
                             Imagen de la empresa
                         </a>
 

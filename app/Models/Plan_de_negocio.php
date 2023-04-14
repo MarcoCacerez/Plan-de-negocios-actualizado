@@ -48,4 +48,9 @@ class Plan_de_negocio extends Model
     {
         return $this->hasOne(Cultura_organizacional::class);
     }
+
+    public function imagenes_corporativas():HasOne 
+    {
+        return $this->hasOne(Imagen_corporativa::class);
+    }
 }

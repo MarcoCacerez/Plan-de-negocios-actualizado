@@ -10,6 +10,7 @@ class Imagen_corporativa extends Model
 {
     use HasFactory;
     protected $table = 'imagenes_corporativas';
+    protected $guarded = [];
 
     public function plan_de_negocio():BelongsTo
     {

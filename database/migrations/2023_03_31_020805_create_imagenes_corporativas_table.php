@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('plan_de_negocio_id')->constrained('plan_de_negocios');
             $table->string('nombre_corporativo');
             $table->text('justificacion_nombre');
-            $table->binary('logotipo');
+            $table->text('logotipo');
             $table->text('justificacion_logo');
             $table->string('eslogan');
             $table->text('justificacion_eslogan');
