@@ -8,6 +8,7 @@ use App\Http\Controllers\ImagenCorporativaController;
 use App\Http\Controllers\ModeloCanvasController;
 use App\Http\Controllers\PlanDeNegocioController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PublicidadController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
         'plan_de_negocio.producto' => ProductoController::class,
         'plan_de_negocio.cultura_organizacional' => CulturaOrganizacionalController::class,
         'plan_de_negocio.estructura_legal' => EstructuraLegalController::class,
+        'plan_de_negocio.publicidad' => PublicidadController::class,
     ]);
 });
 

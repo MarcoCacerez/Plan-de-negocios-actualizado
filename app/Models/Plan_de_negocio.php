@@ -53,4 +53,9 @@ class Plan_de_negocio extends Model
     {
         return $this->hasOne(Imagen_corporativa::class);
     }
+
+    public function publicidades():HasOne 
+    {
+        return $this->hasOne(Publicidad::class);
+    }
 }

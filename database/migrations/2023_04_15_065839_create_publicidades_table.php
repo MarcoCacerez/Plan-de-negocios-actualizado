@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('publicidadades_promociones', function (Blueprint $table) {
+        Schema::create('publicidades', function (Blueprint $table) {
             $table->id();
             $table->foreignId('plan_de_negocio_id')->constrained('plan_de_negocios');
             $table->text('plan_promocion');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('publicidadades_promociones');
+        Schema::dropIfExists('publicidades');
     }
 };
