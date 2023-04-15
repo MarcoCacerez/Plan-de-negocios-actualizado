@@ -57,7 +57,7 @@
                         <header class="flex w-full items-center justify-between p-4 dark:bg-gray-800 rounded-t-lg">
                             <span class="dark:text-gray-50">Antecedentes</span>
                             <div class="flex inline-flex">
-                                <input x-show="show" type="submit" value="Actualizar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
+                                <input x-show="show" type="submit" value="Guardar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
                                 <div @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }" class="cursor-pointer text-white flex items-center space-x-2 rounded p-2 dark:bg-gray-600 dark:hover:bg-gray-700">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
                                 </div>
@@ -101,7 +101,7 @@
                         <header class="flex w-full items-center justify-between p-4 dark:bg-gray-800 rounded-t-lg">
                             <span class="dark:text-gray-50">Descripción general del producto y/o servicio</span>
                             <div class="flex inline-flex">
-                                <input x-show="show" type="submit" value="Actualizar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
+                                <input x-show="show" type="submit" value="Guardar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
                                 <div @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }" class="cursor-pointer text-white flex items-center space-x-2 rounded p-2 dark:bg-gray-600 dark:hover:bg-gray-700">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
                                 </div>
@@ -145,7 +145,7 @@
                         <header class="flex w-full items-center justify-between p-4 dark:bg-gray-800 rounded-t-lg">
                             <span class="dark:text-gray-50">Aspectos innovadores</span>
                             <div class="flex inline-flex">
-                                <input x-show="show" type="submit" value="Actualizar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
+                                <input x-show="show" type="submit" value="Guardar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
                                 <div @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }" class="cursor-pointer text-white flex items-center space-x-2 rounded p-2 dark:bg-gray-600 dark:hover:bg-gray-700">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
                                 </div>

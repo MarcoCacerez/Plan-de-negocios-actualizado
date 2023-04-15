@@ -65,17 +65,45 @@ class ImagenCorporativaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Imagen_corporativa $imagen_corporativa)
+    public function edit(Plan_de_negocio $plan_de_negocio, Imagen_corporativa $imagen_corporativa)
     {
-        //
+        return view('imagen_corporativa.edit', compact('plan_de_negocio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Imagen_corporativa $imagen_corporativa)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Imagen_corporativa $imagen_corporativa)
     {
-        //
+        //dd($request->hasFile('logotipo'));
+
+        $request->validate([
+            'justificacion_logo' => 'required',
+            'nombre_corporativo' => 'required',
+            'justificacion_nombre' => 'required',
+            'eslogan' => 'required',
+            'justificacion_eslogan' => 'required',
+        ]);
+
+        $data = $request->only('justificacion_logo', 'nombre_corporativo', 'justificacion_nombre', 'eslogan', 'justificacion_eslogan');
+
+        if ( $request->hasFile('logotipo') )
+        {
+            $request->validate([
+                'logotipo' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            ]);
+
+            $file = $request->file('logotipo');
+            $destinationPath = 'images/logotipos/';
+            $filename = time(). '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('logotipo')->move($destinationPath, $filename);
+            $data['logotipo'] = $destinationPath . $filename;
+        }else{
+            $data['logotipo'] = $imagen_corporativa->logotipo;
+        }
+        
+        $plan_de_negocio->imagenes_corporativas->update($data);
+        return redirect()->route('plan_de_negocio.imagen_corporativa.index', compact('plan_de_negocio'));
     }
 
     /**
