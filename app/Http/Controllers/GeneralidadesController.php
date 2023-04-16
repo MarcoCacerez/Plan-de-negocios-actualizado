@@ -14,7 +14,6 @@ class GeneralidadesController extends Controller
     public function index(Plan_de_negocio $plan_de_negocio)
     {
         $plan_de_negocio->load('generalidades');
-
         return view('generalidades.index', compact('plan_de_negocio'));
     }
 
@@ -31,6 +30,17 @@ class GeneralidadesController extends Controller
      */
     public function store(Request $request, Plan_de_negocio $plan_de_negocio)
     {
+        //dd($request);
+        $seccion = '';
+        if ($request->input('antecedentes') != null){
+            $seccion = 'Antecedentes';
+        }else if ($request->input('descripcion_producto') != null){
+            $seccion = 'Producto';
+        }else{
+            $seccion = 'Aspectos';
+        }
+        //dd($yopi);
+
         $validated = $request->validate([
             'antecedentes' => 'nullable',
             'descripcion_producto' => 'nullable',
@@ -39,7 +49,7 @@ class GeneralidadesController extends Controller
 
         $plan_de_negocio->generalidades()->create($validated);
 
-        return redirect()->route('plan_de_negocio.generalidades.index',compact('plan_de_negocio'));
+        return redirect()->route('plan_de_negocio.generalidades.index',compact('plan_de_negocio', 'seccion'));
     }
 
     /**
@@ -63,6 +73,15 @@ class GeneralidadesController extends Controller
      */
     public function update(Request $request, Plan_de_negocio $plan_de_negocio, Generalidades $generalidades)
     {
+        $seccion= '';
+        if ($request->input('antecedentes') != null){
+            $seccion = 'Antecedentes';
+        }else if ($request->input('descripcion_producto') != null){
+            $seccion = 'Producto';
+        }else{
+            $seccion = 'Aspectos';
+        }
+
         $validated = $request->validate([
             'antecedentes' => 'nullable',
             'descripcion_producto' => 'nullable',
@@ -71,14 +90,35 @@ class GeneralidadesController extends Controller
 
         $plan_de_negocio->generalidades->update($validated);
 
-        return redirect()->route('plan_de_negocio.generalidades.index',compact('plan_de_negocio'));
+        return redirect()->route('plan_de_negocio.generalidades.index',compact('plan_de_negocio', 'seccion'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Generalidades $generalidades)
+    public function destroy(Request $request, Plan_de_negocio $plan_de_negocio, Generalidades $generalidades)
     {
-        //
+        $seccion= '';
+        if ($request->input('action') == "antecedentes") {
+            $seccion = 'Antecedentes';
+            $antecedentes = $plan_de_negocio->generalidades;
+            $antecedentes->antecedentes = null;
+            $antecedentes->update();
+
+        } else if ($request->input('action') == "producto") {
+            $seccion = 'Producto';
+            $producto = $plan_de_negocio->generalidades;
+            $producto->descripcion_producto= null;
+            $producto->update();
+
+        } else if ($request->input('action') == "aspectos") {
+            $seccion = 'Aspectos';
+            $aspectos = $plan_de_negocio->generalidades;
+            $aspectos->aspectos_innovadores = null;
+            $aspectos->update();
+        }
+
+        return redirect()->route('plan_de_negocio.generalidades.index',compact('plan_de_negocio', 'seccion'));
+
     }
 }
