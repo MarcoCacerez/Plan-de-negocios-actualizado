@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="flex flex-wrap justify-center items-center my-2 md:flex-nowrap md:space-x-2 md:mb-4">
-                    <label class="text-white md:w-1/4" for="descripcion" class="dark:text-white">Descripcion</label>
+                    <label class="text-white md:w-1/4" for="descripcion" class="dark:text-white">Descripción</label>
                     <input class="rounded bg-gray-300 md:w-1/3" type="text" name="descripcion" id="descripcion" value="{{old('descripcion')}}" class="md:w-1/2">
                 </div>
 

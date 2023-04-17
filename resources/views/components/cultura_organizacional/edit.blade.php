@@ -8,7 +8,7 @@
     <h1 class="dark:text-gray-100 md:text-2xl">Cultura Organizacional</h1>
   </header>
   <section class="min-h-fit w-full">
-    <form action="{{ route('plan_de_negocio.cultura_organizacional.update',[$plan_de_negocio,$cultura_organizacional]) }}" method="POST">
+    <form class="mx-20" action="{{ route('plan_de_negocio.cultura_organizacional.update',[$plan_de_negocio,$cultura_organizacional]) }}" method="POST">
       @csrf
       @method('patch')
       <label for="Mision" class="mx-auto flex min-w-full flex-wrap items-center justify-center space-y-2 p-2 md:min-w-fit md:flex-nowrap md:justify-between md:space-x-2">

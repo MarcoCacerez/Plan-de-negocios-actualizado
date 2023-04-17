@@ -24,9 +24,14 @@
                     </div>
                 </form>
             </div>
-            <a href="{{ route('plan_de_negocio.producto.create', [$plan_de_negocio]) }}" class="float-right my-6 mb-4 inline-flex items-center px-4 py-2 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                Agregar producto
-            </a>
+            <div>
+                <a href="{{ route('plan_de_negocio.producto.create', [$plan_de_negocio]) }}" class="float-right my-6 mb-4 inline-flex items-center px-4 py-2 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    Agregar producto
+                </a>
+                <a href="{{ route('plan_de_negocio.producto.index', [$plan_de_negocio]) }}" class="float-right my-6 mb-4 inline-flex items-center px-4 py-2 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    Ver todos los productos
+                </a>
+            </div>
         </div>
 
         <div class="mx-20"> 
@@ -57,7 +62,11 @@
                             <tr class="row-span-4 border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th colspan = "5" scope="row" class="text-center bh-red px-6 py-8 text-lg text-gray-900 whitespace-nowrap dark:text-gray-400">
                                     <div class="">
-                                        Producto o servicio no encontrado
+                                    @if ($plan_de_negocio->productos==null || sizeof($plan_de_negocio->productos)==0)
+                                        Aún no tienes servicios o productos añadidos
+                                    @else
+                                        Producto o servicio no encontrado      
+                                    @endif
                                     </div>
                                 </th>
                             </tr>
