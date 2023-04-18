@@ -76,7 +76,7 @@ class EstructuraLegalController extends Controller
     public function destroy(Plan_de_negocio $plan_de_negocio, Estructura_legal $estructura_legal)
     {
         Estructura_legal::destroy($estructura_legal->id);
-
-        return view('estructura_legal.index', compact('plan_de_negocio'));
+        
+        return redirect()->route('plan_de_negocio.estructura_legal.index', compact('plan_de_negocio'));
     }
 }
