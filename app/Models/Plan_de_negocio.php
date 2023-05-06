@@ -58,4 +58,9 @@ class Plan_de_negocio extends Model
     {
         return $this->hasOne(Publicidad::class);
     }
+
+    public function estudios():HasMany
+    {
+        return $this->hasMany(Estudio::class);
+    }
 }

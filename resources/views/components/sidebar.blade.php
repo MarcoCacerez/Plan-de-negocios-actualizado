@@ -205,6 +205,16 @@
                 </div>
             </div>
             <!---->
+            <!--ESTUDIOS DE MERCADO-->
+            <div
+                class="relative"
+                >
+                <!-- Button -->
+                <a href="{{ route('plan_de_negocio.estudio.index', [$plan_de_negocio]) }}" class="flex items-center gap-2 w-full rounded-md px-4 py-2.5 text-left hover:bg-gray-200 hover:dark:bg-gray-600 dark:bg-gray-700 disabled:text-gray-500 flex justify-center">
+                    <p>Estudios de mercado</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b8b8b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+            </div>
         </aside>
     </div>
 </div>
