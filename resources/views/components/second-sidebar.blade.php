@@ -71,6 +71,14 @@
                         Ver resultados
                     </a>
                 </div>
+
+                <div class="relative">
+                    <!-- Button -->
+                    <a href="{{ route('plan_de_negocio.generalidades.index', [$plan_de_negocio]) }}" class="flex w-full items-center mt-10 gap-2 p-4 my-1 rounded-md hover:bg-gray-200 hover:dark:bg-sky-900 dark:bg-sky-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c4c4c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        Salir de los estudios
+                    </a>
+                </div>
             <div>
         </aside>
     </div>
