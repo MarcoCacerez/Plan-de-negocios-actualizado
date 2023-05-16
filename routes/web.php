@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PublicidadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EstudioController;
+use App\Http\Controllers\ConceptoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
         'plan_de_negocio.estructura_legal' => EstructuraLegalController::class,
         'plan_de_negocio.publicidad' => PublicidadController::class,
         'plan_de_negocio.estudio' => EstudioController::class,
+        'plan_de_negocio.estudio.concepto' => ConceptoController::class,
     ]);
 });
 

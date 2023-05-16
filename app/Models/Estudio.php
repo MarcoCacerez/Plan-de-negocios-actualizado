@@ -14,4 +14,9 @@ class Estudio extends Model
     {
         return $this->belongsTo(Plan_de_negocio::class);
     }
+
+    public function conceptos()
+    {
+        return $this->hasMany(Concepto::class);
+    }
 }
