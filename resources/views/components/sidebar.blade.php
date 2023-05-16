@@ -1,7 +1,7 @@
 @props([
     'plan_de_negocio' => ''
 ])
-<div>
+<div class="">
     <div class="
         hidden
         w-50
