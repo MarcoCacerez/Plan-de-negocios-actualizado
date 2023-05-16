@@ -32,7 +32,7 @@
                     dark:bg-gray-700
                     hover:bg-gray-200
                     dark:hover:bg-gray-800"
-                    href="#"
+                    href="{{ route('plan_de_negocio.estudio.show', [$plan_de_negocio, $estudio]) }}"
                     >
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">{{ $estudio->nombre }}</div>

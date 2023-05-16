@@ -44,9 +44,9 @@ class EstudioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Estudio $estudio)
+    public function show(Plan_de_negocio $plan_de_negocio, Estudio $estudio)
     {
-        //
+        return view('estudio.show', compact('plan_de_negocio', 'estudio'));
     }
 
     /**
@@ -60,9 +60,18 @@ class EstudioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Estudio $estudio)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Estudio $estudio)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'objetivo' => 'required',
+            'objetivos_especificos' => 'required',
+            'especificacion' => 'required',
+        ]);
+
+        $estudio->update($validated);
+
+        return redirect()->route('plan_de_negocio.estudio.index', compact('plan_de_negocio', 'estudio'));
     }
 
     /**
