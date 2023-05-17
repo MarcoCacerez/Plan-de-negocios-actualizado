@@ -12,6 +12,7 @@ use App\Http\Controllers\PublicidadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EstudioController;
 use App\Http\Controllers\ConceptoController;
+use App\Http\Controllers\ConclusionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,7 @@ Route::middleware('auth')->group(function () {
         'plan_de_negocio.publicidad' => PublicidadController::class,
         'plan_de_negocio.estudio' => EstudioController::class,
         'plan_de_negocio.estudio.concepto' => ConceptoController::class,
+        'plan_de_negocio.estudio.conclusion' => ConclusionController::class,
     ]);
 });
 

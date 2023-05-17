@@ -20,17 +20,23 @@ class ConceptoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Plan_de_negocio $plan_de_negocio, Estudio $estudio)
     {
-        //
+        return view('concepto.create', compact('plan_de_negocio', 'estudio'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan_de_negocio $plan_de_negocio, Estudio $estudio)
     {
-        //
+        $validated = $request->validate([
+            'concepto' => 'required',
+        ]);
+
+        $estudio->conceptos()->create($validated);
+
+        return redirect()->route('plan_de_negocio.estudio.concepto.index', ['plan_de_negocio' => $plan_de_negocio, 'estudio' => $estudio]);
     }
 
     /**
@@ -52,9 +58,15 @@ class ConceptoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Concepto $concepto)
+    public function update(Request $request, Plan_de_negocio $plan_de_negocio, Estudio $estudio, Concepto $concepto)
     {
-        //
+        $validated = $request->validate([
+            'concepto' => 'required',
+        ]);
+
+        $concepto->update($validated);
+
+        return redirect()->route('plan_de_negocio.estudio.concepto.index', ['plan_de_negocio' => $plan_de_negocio, 'estudio' => $estudio]);
     }
 
     /**

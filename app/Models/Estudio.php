@@ -19,4 +19,9 @@ class Estudio extends Model
     {
         return $this->hasMany(Concepto::class);
     }
+
+    public function conclusion()
+    {
+        return $this->hasOne(Conclusion::class);
+    }
 }
