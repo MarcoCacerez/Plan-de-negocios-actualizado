@@ -13,6 +13,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EstudioController;
 use App\Http\Controllers\ConceptoController;
 use App\Http\Controllers\ConclusionController;
+use App\Http\Controllers\PollController;
+use App\Http\Controllers\PreguntaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,8 @@ Route::middleware('auth')->group(function () {
         'plan_de_negocio.estudio' => EstudioController::class,
         'plan_de_negocio.estudio.concepto' => ConceptoController::class,
         'plan_de_negocio.estudio.conclusion' => ConclusionController::class,
+        'plan_de_negocio.estudio.encuesta' => PollController::class,
+        'plan_de_negocio.estudio.encuesta.pregunta' => PreguntaController::class,
     ]);
 });
 

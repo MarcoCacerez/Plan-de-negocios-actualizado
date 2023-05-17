@@ -10,7 +10,7 @@ class Estudio extends Model
     use HasFactory;
 
     protected $guarded = [];
-    public function estudios():BelongsTo
+    public function plan_de_negocio():BelongsTo
     {
         return $this->belongsTo(Plan_de_negocio::class);
     }
@@ -23,5 +23,10 @@ class Estudio extends Model
     public function conclusion()
     {
         return $this->hasOne(Conclusion::class);
+    }
+
+    public function encuestas()
+    {
+        return $this->hasMany(Poll::class);
     }
 }
