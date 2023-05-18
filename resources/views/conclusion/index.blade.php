@@ -25,13 +25,13 @@
         <div class="mx-20 flex flex-wrap mb-8 space-y-6 grid justify-items-center">
             <div class="py-8 w-full">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="p-6 bg-white border-b border-gray-200">
+                    <div class="overflow-hidden sm:rounded-lg">
+                        <div class="p-6 dark:bg-gray-800 bg-red-800">
                             
                             <div id="conclusion_txt" class="text-base">
                                 @if ($estudio->conclusion == null)
 
-                                    <h1>Aún no tienes una conclusion</h1>
+                                    <p class="text-center text-gray-200 text-base">Aún no tienes una conclusion</p>
                                         <script type="text/javascript">
                                             btn_edit = document.getElementById("btn_editar").style.display = 'none';
                                             btn_crear = document.getElementById("btn_crear").style.display = 'block';
@@ -39,7 +39,7 @@
 
                                     @else
 
-                                    <h1>{{ $estudio->conclusion->conclusion }}</h1>
+                                    <p class="text-gray-200">{{ $estudio->conclusion->conclusion }}</p>
                                         <script type="text/javascript">
                                             btn_edit = document.getElementById("btn_editar").style.display = 'block';
                                             btn_crear = document.getElementById("btn_crear").style.display = 'none';
@@ -47,13 +47,13 @@
                                 @endif
                             </div>
 
-                            <div id="edit" style="display: none;">
+                            <div id="edit" style="display: none;" class="">
                                 @if ($estudio->conclusion != null)
                                     <form method="POST" action="{{ route('plan_de_negocio.estudio.conclusion.update', [$plan_de_negocio, $estudio, $estudio->conclusion]) }}">
                                         @method('PATCH')
                                         @csrf
                                         <div class="mb-6">
-                                            <label for="conclusion" class="block mb-2 text-lg text-center font-medium text-gray-900">Actualizar conclusión</label>
+                                            <label for="conclusion" class="block mb-2 text-lg text-center font-medium text-gray-200">Actualizar conclusión</label>
                                             <textarea name="conclusion" id="conclusion" rows="8" class="block p-2.5 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
                                             placeholder="Ingrese la conclusión del estudio a la que se llegó tras hacer las investigaciones">@if ($estudio->conclusion == null)Aun no tienes una conclusion @else{{ $estudio->conclusion['conclusion'] }}@endif</textarea>
                                             @error('objetivo')

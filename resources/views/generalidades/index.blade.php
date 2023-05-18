@@ -48,7 +48,7 @@
                 @endif
                     @csrf
                     <header class="flex w-full items-center justify-between p-4 dark:bg-gray-800 rounded-t-lg">
-                        <span class="dark:text-gray-50">Antecedentes prueba</span>
+                        <span class="dark:text-gray-50">Antecedentes</span>
                         <div class="flex inline-flex">
                             <input x-show="show" type="submit" value="Guardar" class="cursor-pointer mr-4 text-white flex items-center space-x-2 rounded p-2 dark:bg-green-800 dark:hover:bg-green-900">
                             <div @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }" class="cursor-pointer text-white flex items-center space-x-2 rounded p-2 dark:bg-gray-600 dark:hover:bg-gray-700">

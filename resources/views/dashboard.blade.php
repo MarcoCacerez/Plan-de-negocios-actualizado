@@ -31,8 +31,9 @@
                 href="{{ route('plan_de_negocio.generalidades.index', [$plan_de_negocio]) }}"
                 >
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">{{ $plan_de_negocio->nombre }}</div>
+                    <div class="font-bold text-xl mb-2 border-b border-gray-500 pb-2">{{ $plan_de_negocio->nombre }}</div>
                     <p class="text-base">{{ $plan_de_negocio->descripcion }}</p>
+                    <p class="text-base text-right mt-6">{{ $plan_de_negocio->created_at->format('d/m/Y') }}</p>
                 </div>
             </a>
         @endforeach

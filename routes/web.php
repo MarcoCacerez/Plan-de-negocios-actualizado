@@ -16,6 +16,7 @@ use App\Http\Controllers\ConclusionController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\CapturarResultadoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function () {
         'plan_de_negocio.estudio.encuesta' => PollController::class,
         'plan_de_negocio.estudio.encuesta.pregunta' => PreguntaController::class,
         'plan_de_negocio.estudio.encuesta.formulario' => FormularioController::class,
+        'plan_de_negocio.estudio.capturar_resultado' => CapturarResultadoController::class,
     ]);
 });
 

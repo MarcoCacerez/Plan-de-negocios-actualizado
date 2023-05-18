@@ -24,9 +24,13 @@
         <div class="mx-20 flex flex-wrap mb-8 space-y-6 grid">
             <div class="pb-6">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="p-6 bg-gray-900">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden my-8">
+                        <div class="bg-gray-800">
                             <div class="mb-6">
+                            @if (sizeof($estudio->encuestas) == 0)
+                                    <p class="text-center text-gray-300 pt-7 pb-2">No tienes encuestas guardadas</p>
+                            @endif
+
                                 @foreach ($estudio->encuestas as $encuesta)
                                     <div class="p-6 mb-3 max-w-auto bg-gray-800 rounded-lg shadow-md">
                                         <h6 class="mb-4 pb-2 border-b-4 border-gray-700 font-bold tracking-tight text-gray-200 text-xl">{{ $encuesta->titulo }}</h6>

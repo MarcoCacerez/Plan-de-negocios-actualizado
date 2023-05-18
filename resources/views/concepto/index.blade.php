@@ -22,13 +22,13 @@
         </div>
 
         <div class="mx-20 flex flex-wrap mb-8 space-y-6 grid justify-items-center">
-            <div class="py-6">
+            <div class="py-2 w-full">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden sm:rounded-lg">
                         <div class="p-6 dark:bg-gray-900">
-                            <div class="mb-6 grid grid-flow-row auto-rows-min md:auto-rows-max dark:bg-gray-800 pl-10 pr-6 pb-4 pt-8">
+                            <div class="mb-6 grid divide-y divide-gray-700 grid-flow-row auto-rows-min md:auto-rows-max dark:bg-gray-800 rounded-xl pl-10 pr-6 pb-4 pt-8">
                                 @if (sizeof($estudio->conceptos) == 0)
-                                    <p class="items-center text-gray-300 pr-4 pb-4">Aún no tienes conceptos agregados</p>
+                                    <p class="text-center text-gray-300 pr-4 pb-4">Aún no tienes conceptos agregados</p>
                                 @endif
 
                                 @if ($estudio->conceptos != null)
@@ -39,17 +39,17 @@
                                                 method="post">
                                                 @csrf
                                                 @method('patch')
-                                                <div class="flex items-center justify-between">
-                                                    <div x-show="view" class="mr-12 text-md">
-                                                        <p class="text-xl dark:text-gray-300 ">{{ $concepto->concepto }}</p>
+                                                <div class="flex items-center justify-between my-4">
+                                                    <div x-show="view" class="mr-12 text-md mt-4">
+                                                        <p class="text-lg dark:text-gray-300">{{ $concepto->concepto }}</p>
                                                     </div>
-                                                    <div x-show="edit">
+                                                    <div x-show="edit" class="w-full">
                                                         <input type="text" name="concepto"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                             value="{{ $concepto->concepto }}">
                                                         <div class="flex flex space-x-4 mt-6">
                                                                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Actualizar</button>
-                                                                <a @click="edit= false, view= true" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                                                <a @click="edit= false, view= true" class="cursor-pointer text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                                                                     Cancelar
                                                                 </a>
                                                         </div>

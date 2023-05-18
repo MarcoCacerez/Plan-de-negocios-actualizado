@@ -37,8 +37,9 @@
                     href="{{ route('plan_de_negocio.estudio.show', [$plan_de_negocio, $estudio]) }}"
                     >
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">{{ $estudio->nombre }}</div>
-                        <p class="text-base">{{ $estudio->descripcion }}</p>
+                        <div class="font-bold text-xl mb-2 border-b border-gray-500 pb-2">{{ $estudio->nombre }}</div>
+                        <p class="text-base">{{ $estudio->objetivo }}</p>
+                        <p class="text-base text-right mt-6">{{ $plan_de_negocio->created_at->format('d/m/Y') }}</p>
                     </div>
                 </a>
             @endforeach
