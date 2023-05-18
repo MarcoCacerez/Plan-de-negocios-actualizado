@@ -36,10 +36,14 @@
                                                 Ver mas
                                                 <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                             </a>
-                                            <a href="{{ route('plan_de_negocio.estudio.encuesta.destroy', [$plan_de_negocio, $estudio, $encuesta]) }}" class="inline-flex items-center py-2 px-3 text-md font-bold text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                                                Eliminar
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d8d8d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                            </a>
+                                            <form class="eliminar" action="{{ route('plan_de_negocio.estudio.encuesta.destroy',[$plan_de_negocio, $estudio, $encuesta])  }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button onclick="return confirm('¿Seguro que quieres borrar esta encuesta?')" href="{{ route('plan_de_negocio.estudio.encuesta.destroy', [$plan_de_negocio, $estudio, $encuesta]) }}" class="inline-flex items-center py-2 px-3 text-md font-bold text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                                    Eliminar
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d8d8d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 @endforeach

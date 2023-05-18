@@ -68,8 +68,9 @@ class PollController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Poll $poll)
+    public function destroy(Plan_de_negocio $plan_de_negocio, Estudio $estudio, Poll $encuestum)
     {
-        //
+        Poll::destroy($encuestum->id);
+        return redirect()->route('plan_de_negocio.estudio.encuesta.index', ['plan_de_negocio' => $plan_de_negocio, 'estudio' => $estudio]);
     }
 }
